@@ -29,14 +29,14 @@ function Header() {
 
         {/* 로고 */}
         <h1 className="logo">
-          <a href="/ginipet">
+          <Link to="/ginipet">
             <img
               src={process.env.PUBLIC_URL + '/images/logo_clr.png'}
               alt="지니펫 로고"
               width="56"
               height="56"
             />
-          </a>
+          </Link>
         </h1>
 
         {/* 장바구니 아이콘 */}
