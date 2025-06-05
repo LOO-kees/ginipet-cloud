@@ -29,7 +29,7 @@ function Header() {
 
         {/* 로고 */}
         <h1 className="logo">
-          <Link to="/ginipet">
+          <Link to="/">
             <img
               src={process.env.PUBLIC_URL + '/images/logo_clr.png'}
               alt="지니펫 로고"
