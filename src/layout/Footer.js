@@ -136,7 +136,7 @@ export default function Footer() {
 
         <div className="bottomLogo-wrap">
           <h1>
-            <Link to="/">
+            <Link to="/ginipet">
               <img
                 src={process.env.PUBLIC_URL + '/images/logo_grey.png'}
                 width="88"
