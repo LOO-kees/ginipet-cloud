@@ -1,5 +1,10 @@
+// src/component/Join.js
+
 import React, { useState } from 'react';
 import axios from 'axios';
+// ★ useNavigate 추가
+import { useNavigate } from 'react-router-dom';
+import Login from './Login'; // (필요에 따라 import)
 
 function Join(props) {
   // 1. 상태 변수 선언
@@ -11,13 +16,17 @@ function Join(props) {
     tel: ''
   });
   const [error, setError]     = useState('');
-  const [success, setSuccess] = useState('');
+  // 성공 메시지는 alert()로 처리할 예정이므로 따로 상태 관리하지 않아도 됩니다.
+  // const [success, setSuccess] = useState('');
+
+  // ★ useNavigate 훅 호출
+  const navigate = useNavigate();
 
   // 2. 입력 핸들러
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
     setError('');
-    setSuccess('');
+    // setSuccess('');
   };
 
   // 3. 제출 핸들러
@@ -31,7 +40,7 @@ function Join(props) {
     }
 
     try {
-      // ★ URL을 /ginipet/register로 변경
+      // ★ 회원가입 요청 주소를 /ginipet/register 로 변경
       await axios.post(
         'https://port-0-backend-mbioc25168a38ca1.sel4.cloudtype.app/ginipet/register',
         {
@@ -42,7 +51,12 @@ function Join(props) {
         }
       );
 
-      setSuccess('회원가입이 완료되었습니다.');
+      // 회원가입 성공 시 alert 창 띄우기
+      alert('회원가입 완료! 로그인 페이지로 이동합니다.');
+      // 로그인 페이지(/login)로 이동
+      navigate('/login');
+
+      // (선택) 가입 후 폼 초기화
       setForm({
         username: '',
         password: '',
@@ -136,8 +150,7 @@ function Join(props) {
           <button type="submit" className="join-btn">회원가입 완료</button>
         </p>
 
-        {error   && <p style={{ color: 'red'   }}>{error}</p>}
-        {success && <p style={{ color: 'green' }}>{success}</p>}
+        {error && <p style={{ color: 'red' }}>{error}</p>}
       </form>
     </section>
   );
