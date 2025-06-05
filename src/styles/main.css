@@ -1,0 +1,254 @@
+@charset "utf-8";
+
+/* 메인공통 */
+
+.main-sub-txt{
+  font-size: 1rem;
+  color: #646464;
+  text-align: center;
+  margin: 0 0 1.5rem 0;
+}
+
+/* ─── 메인 슬라이더 (Swiper) ─────────────────────── */
+.main-slide{
+  position:relative;width:100%;overflow:hidden;margin-top:40px;
+}
+.main-slide img{width:100%;height:auto;display:block}
+
+/* 화살표 버튼 */
+.mainPrev,.mainNext{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:48px;height:48px;border:0;background:none;cursor:pointer;z-index:30;
+}
+.mainPrev{left:8px;}
+.mainNext{right:8px;}
+.mainPrev img,.mainNext img{width:100%;height:100%;display:block}
+
+/* Swiper 기본 네비게이션 숨기기 */
+.mainSwiper .swiper-button-prev,
+.mainSwiper .swiper-button-next{display:none}
+
+/* ─── 메인 슬라이드 오버레이(배경+텍스트+추가) ──────── */
+.slide-set{
+  position:relative;width:100%;overflow:hidden;
+}
+.slide-bg{
+  width:100%;height:auto;display:block;
+}
+/* 추가 오버레이(배경·장식 등) */
+.slide-overlay{
+  position:absolute;top:0;left:0;
+  width:100%;height:auto;display:block;
+  pointer-events:none;
+}
+/* 텍스트 오버레이(가운데 배치) */
+.slide-txt{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:85%;height:auto;
+  pointer-events:none;
+}
+
+
+/* ─── 메인 2 (지니펫 쇼핑하러 가기 + 상품 슬라이드) ───────────────── */
+
+.bgclolor-i{
+background: #f7f1e5;
+}
+
+.icon-wrap {
+  text-align: center;
+  padding-top: 40px;
+}
+.icon-wrap .title-icon {
+  width: 44px;
+  height: 44px;
+  display: inline-block; /* 인라인 블록으로 두면 text-align이 먹습니다 */
+}
+/* ─── “바로가기” 버튼 크기 조정 ───────────────── */
+.mainProduct-wrap .btn-go {
+  width: 160px;           /* 버튼 너비 */
+  height: 40px;           /* 버튼 높이 */
+  line-height: 40px;
+  font-size: 1rem;
+  border: 1px solid #646464;
+  background: transparent;
+  margin: 0.5rem auto 2rem;
+  display: block;
+  cursor: pointer;
+  color: #646464;
+}
+
+.mainProduct-wrap .btn-go:hover{
+  background:#646464;
+  color: #fff;
+}
+
+.main-2title {
+  font-size: 30px !important;
+  text-align: center;
+  margin: 10px 0 20px 0;
+  color: #646464;
+}
+.txt-bold{
+  font-weight: 600;
+}
+/* ─── 상품 카드: 2컬럼 ───────────────── */
+.product-slide .product-card {
+  display: flex;
+  max-width: 700px;       /* 카드 최대 너비 */
+  margin: 0 auto;
+  background: #f7f1e5;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  gap: 2rem;
+}
+
+/* 왼쪽 이미지 */
+.product-slide .product-img {
+  flex-shrink: 0;
+  width: 260px;           /* 이미지 너비 */
+  height: auto;
+  border-radius: 4px;
+}
+
+/* 오른쪽 정보 */
+.product-slide .product-info {
+  flex: 1;
+  text-align: left;
+}
+
+/* 레이블(작은 회색 글씨) */
+.product-slide .product-label {
+  display: block;
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.7rem;
+}
+
+/* 제목 */
+.product-slide .product-title {
+  font-size: 0.9rem;
+  margin: 0 0 2rem;
+  color: #444444;
+}
+
+/* 가격 */
+.product-slide .product-price {
+  font-size: 1.5rem;
+  color: #e94e1b;
+  margin-bottom: 3rem;
+}
+
+/* 아이콘 그룹 */
+.product-slide .product-icons {
+  display: flex;
+  gap: 0.75rem;
+  
+}
+
+/* 아이콘 크기 */
+.product-slide .product-icons img {
+  width: 28px;
+  height: 28px;
+  background-color: #991e1e;
+  border-radius: 50%;
+  padding: 0.1rem;
+  cursor: pointer;
+}
+
+
+/* ─── 메인 3─────────────────────── */
+
+.story-section{
+  background:#EDE9E8;          /* 박스 배경색 */
+  max-width:700px;             /* 전체 폭 제한 */
+  margin:260px auto 0;      /* 가운데 정렬 + 상단 여백 */
+  padding:140px 1.5rem 3rem;   /* 배너 이미지 공간 확보 */
+  position:relative;
+  box-sizing:border-box;
+}
+
+/* 맨 위 배너 이미지(banner_story_img.png) */
+.story-banner-img{
+  position:absolute;
+  top:-240px;
+  left:50%;
+  transform:translateX(-50%);
+  width:350px;
+  height:auto;
+  display:block;
+}
+
+/* 타이틀 옆에 붙는 작은 아이콘(title_instar_icon.png) */
+.sns-inline-icon{
+  width:36px;
+  height:auto;
+  margin-right:6px;            /* 왼쪽 배치 시 오른쪽 여백 */
+  margin-left:0;
+  vertical-align:middle;
+}
+
+/* “자세히보기” 버튼 – 지니펫 쇼핑과 동일한 디자인 */
+.story-section .btn-go{
+  width:160px;
+  height:40px;
+  line-height:40px;
+  font-size:1rem;
+  border:1px solid #646464;
+  background:transparent;
+  margin:0.5rem auto 2rem;
+  display:block;
+  cursor:pointer;
+  color:#646464;
+}
+.story-section .btn-go:hover{
+  background:#646464;
+  color:#fff;
+}
+
+/* 게시물 2행 그리드 */
+.main-story-wrap{
+  width:100%;
+  max-width:650px;
+  margin:2rem auto 0;
+  display:flex;
+  flex-direction:column;
+  gap:1.25rem;
+}
+.main-story-wrap .story-row{
+  display:grid;                /* 1:1 비율 그리드 */
+  grid-template-columns:1fr 1fr;
+  width:100%;
+}
+
+/* 이미지 + 오버레이 래퍼 */
+.story-imgbox{
+  position:relative;
+  overflow:hidden;
+}
+.story-imgbox img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:cover;
+}
+
+/* 흰색 반투명 막 */
+.story-imgbox::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:rgba(255,255,255,.35); /* 투명도 35 % */
+  opacity:0;
+  transition:opacity .25s ease;
+}
+/* 마우스오버 시 막이 나타남 */
+.story-imgbox:hover::after{
+  opacity:1;
+}
+
+
+
+/* ─── 메인 4─────────────────────── */

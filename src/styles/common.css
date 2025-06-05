@@ -1,0 +1,224 @@
+@charset "utf-8";
+
+/* noto snas 웹폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap');
+
+/* 공통서식 */
+/* 1. 글자모양, 크기, 색상 */
+body{
+  font-family: 'Noto Sans KR',arial, sans-serif;
+  font-size:12px;
+  color:#333333;
+}
+
+/* 2. 링크 글자모양, 색,  */
+a{
+  font-family: 'Noto Sans KR',arial, sans-serif;
+  font-size:12px;
+  color:#333333;
+  text-decoration: none; /* 밑줄없음 */
+}
+
+/* 3. 서브페이지에 들어갈 공통 UI구성요소의 서식 */
+
+/* 버튼, input, 내비게이션.......... */
+
+
+/* ─── 헤더 공통 스타일 ───────────────────────────────────────── */
+.header-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background: #3A3A3A;
+  z-index: 1000;
+}
+
+.header-wrap .inner-wrap {
+  max-width: 1240px;       /* 원하는 컨테이너 너비 */
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 16px;       /* 상하 8px, 좌우 16px */
+}
+
+/* 로고 중앙 정렬 */
+.header-wrap .inner-wrap .logo {
+  flex: 1;
+  text-align: center;
+  margin: 0;
+}
+
+/* 햄버거, 카트 아이콘 크기 */
+.header-wrap .inner-wrap .nav-toggle img,
+.header-wrap .inner-wrap .topicon.cart img {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.toggle_btn {
+  background: transparent;  /* 배경 없애기 */
+  border: none;             /* 테두리 없애기 */
+  padding: 0;               /* 불필요한 여백 없애기 */
+  cursor: pointer;          /* 클릭 시 포인터 커서 */
+}
+
+/* 토글 버튼 안 아이콘과 네비/카트 아이콘 크기 조정 */
+.toggle_btn img,
+.header-wrap .inner-wrap .nav-toggle img,
+.header-wrap .inner-wrap .topicon.cart img {
+  display: block; /* inline-bock 대신 block 으로 */
+  width: 24px;
+  height: 24px;
+}
+
+/* h1 안에 img는 56×56 */
+.header-wrap .inner-wrap .logo img {
+  display: inline-block;
+  width: 56px;
+  height: 56px;
+}
+
+
+
+/* ─── 모바일 네비게이션 ────────────────────────────────────── */
+.nav-toggle{background:none;border:0;padding:0;cursor:pointer}
+
+/* 오버레이 */
+.mobile-nav-overlay{
+  position:fixed;inset:0;background:#000;color:#fff;
+  z-index:10000;overflow-y:auto
+}
+
+/* 내부 컨테이너 : 좌·우 40px 여백, 위 24px 여백 */
+.nav-inner{
+  padding:24px 40px 56px;
+  max-width:720px;margin:0 auto;box-sizing:border-box;position:relative
+}
+
+/* X 버튼 : 메뉴들과 같은 왼쪽 여백(40px) */
+.close-btn{
+  position:absolute;top:24px;left:40px;
+  background:none;border:0;cursor:pointer
+}
+
+/* ── 1-Depth ─────────────────────────── */
+.menu-list{list-style:none;margin:56px 0 0;padding:0}
+.menu-list>li{
+  border-top:1px solid #666      /* 위 선 */
+}
+.menu-list>li:last-child{border-bottom:none} /* 마지막 항목 아래선 제거 */
+.menu-item{
+  width:100%;text-align:left;padding:11px 0;
+  font:600 18px/1 'Noto Sans KR',sans-serif;
+  background:none;border:0;color:#fff;cursor:pointer
+}
+.menu-item.open{color:#c88a41}
+
+/* ── 2-Depth ─────────────────────────── */
+.submenu{list-style:none;margin:0;padding:0}
+.submenu-item{position:relative;border-bottom:1px solid #333}
+.submenu-item:last-child{border-bottom:none}   /* 마지막 2-Depth 선 제거 */
+.submenu-item a{
+  display:block;padding:9px 0 9px 20px;
+  font-size:15px;color:#fff;text-decoration:none;
+  transition:color .25s
+}
+.submenu-item a:hover{color:#c88a41}
+.submenu-item a::after{
+  content:'';position:absolute;left:0;bottom:0;width:100%;height:2px;
+  background:currentColor;transform:scaleY(0);transform-origin:bottom;
+  transition:transform .25s
+}
+.submenu-item a:hover::after{transform:scaleY(1)}
+
+/* ── 하단 2 × 2 버튼 ───────────────────── */
+.topMenu-wrap{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  margin-top:32px;border:1px solid #666;border-top:none
+}
+.topMenu-wrap a{
+  height:48px;line-height:48px;text-align:center;
+  background:#333;color:#fff;font-size:16px;text-decoration:none;
+  border-right:1px solid #666;border-bottom:1px solid #666;
+  transition:background .2s
+}
+.topMenu-wrap a:nth-child(2n){border-right:none}    /* 오른쪽 경계선 정리 */
+.topMenu-wrap a:hover{background:#555}
+
+/* ≥768px(태블릿·PC) 에서는 모바일 메뉴 숨김 */
+@media(min-width:768px){.mobile-nav-overlay{display:none}}
+
+
+
+
+/* ─── 푸터 ──────────────────────────────────────────────── */
+.footerNew{
+  width:100%;background:#494949;color:#a6a6a6;font-size:.8rem;
+  line-height:1.5rem;padding-bottom:2rem;
+  /* margin-top: 20px; */
+}
+
+/* 상단 회색 바 */
+.bottomContents-left{
+  background:#717171;color:#fff;line-height:3rem;padding:0 5%;
+}
+.bottom-notice h3{font-size:1rem;font-weight:500}
+
+/* 방침·약관 + 인스타 */
+.bottomContents-right{line-height:3.3rem;padding:0 5%;position:relative}
+.bottom-menu a{color:#fff;margin-right:3%}
+.bottom-menu .red{color:#ff0000;background:#fff;padding:5px}
+.bottom-menu .insta{
+  position:absolute;right:5%;top:50%;transform:translateY(-50%);
+}
+
+/* 고객센터 + 아이콘 + 패밀리 */
+.bottomInner1{
+  display:flex;flex-wrap:wrap;gap:2rem;padding:2rem 5%
+}
+.time-wrap h3{color:#fff;font-size:1rem;margin:0 0 .5rem}
+.time-wrap h4{color:#fff;font-size:1.2rem;margin:0}
+.icon-wrap ul{
+  margin:0;padding:0;list-style:none;display:flex;gap:1rem
+}
+.icon-wrap li img{width:32px;height:32px;display:block}
+.family-wrap select{
+  padding:.4rem .6rem;font-size:.8rem;background:#666;color:#fff;border:0
+}
+
+/* 가로 구분선 */
+hr.grey{border:0;border-top:1px solid #666;margin:0 5%}
+
+/* 사업자 정보 확인 버튼 */
+.btnMoreInfo{text-align:center;margin:1.5rem 0 0}
+.btnMoreInfo button{
+  background:none;border:0;color:#fff;font-size:1rem;cursor:pointer
+}
+.btnMoreInfo img{
+  margin-left:.4rem;transition:transform .3s
+}
+.btnMoreInfo img.rot{transform:rotate(180deg)} /* 열린 상태 */
+
+/* 사업자 정보 패널 */
+.bottomInner2{
+  max-height:0;overflow:hidden;
+  opacity:0;transition:max-height .4s ease,opacity .4s,transform .4s;
+  transform:translateX(-30px);padding:0 5%;
+}
+.bottomInner2.open{
+  max-height:1500px;opacity:1;transform:translateX(0)
+}
+.business-wrap,.escro-wrap,.bottomLogo-wrap{
+  margin:1.5rem 0;text-align:center
+}
+.business-wrap img{margin-bottom:.8rem}
+.confirmLine{font-weight:500;margin-bottom:.5rem}
+
+/* 반응형 */
+@media(min-width:768px){
+  .bottomInner1{justify-content:space-between}
+}
