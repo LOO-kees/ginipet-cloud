@@ -44,7 +44,7 @@ function Login(props) {
       if (remember) localStorage.setItem('rememberId', form.username); //아이디 저장
 
       alert('로그인 성공');
-      navigate('/'); // 메인화면으로 이동
+      navigate('/ginipet'); // 메인화면으로 이동
     } catch (err) {
       setError('로그인 실패 : 아이디와 패스워드를 다시 확인하세요.');
     }
